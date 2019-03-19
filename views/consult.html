@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <style>
+        html{
+            width:100%;
+            height:100%;
+        }
+        body{
+            width:100%;
+            height:100%;
+        }
+        #chat-page{
+            width:35%;
+            height:75%;
+            border:solid salmon 1px;
+            border-radius:10px;
+            margin:10px auto auto 10px;
+        }
+        header{
+            width:100%;
+            height:10%;
+            border-radius:10px 10px 0px 0px;
+            background:lightskyblue;
+            border-bottom:solid aliceblue 1px;
+        }
+        #content{
+            width:100%;
+            height:75%;
+            background:aliceblue;
+            border-bottom:solid aliceblue 1px;
+        }
+        footer{
+            width:100%;
+            height:15%;
+            margin-top:5%;
+
+        }
+        textarea{
+            resize:none;
+            width:70%;
+            float:left;
+            margin-left:5%;
+            margin-bottom:4%;
+        }
+        #send{
+            width: 60px;
+            height: 30px;
+            margin-left:5px;
+            border-radius: 8px;
+            outline: none;
+            background: lightskyblue;
+        }
+    </style>
+
+</head>
+<body>
+  <div id="chat-page">
+      <header>
+
+      </header>
+      <div id="content">
+
+      </div>
+      <footer>
+          <textarea type="text" placeholder="请输入内容"></textarea>
+          <button id="send">send</button>
+      </footer>
+  </div>
+  <script src="node_modules/socket.io/lib/socket.js"></script>
+  <script type="text/javascript">
+      var socket=io.connect();//与服务器进行连接
+      button=document.getElementById('send');
+      //     button.onclick=function(){
+      //     socket.emit('foo', 'hello');//发送一个名为foo的事件，并且传递一个字符串数据‘hello’
+      // }
+  </script>
+</body>
+</html>

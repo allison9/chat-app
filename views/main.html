@@ -1,0 +1,666 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>main</title>
+    <style type="text/css">
+        body {
+            background: #fffcfc;
+            text-align: center;
+        }
+
+        script {
+            display: none;
+        }
+
+        table {
+            font-size: 9pt;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        #container_page {
+            margin: 0 auto;
+            width: 80%;
+            text-align: left;
+            background-color: #FFFFFF;
+        }
+
+        /* .title311 {
+          color: #075fb6;
+          font-family: "Microsoft Yahei";
+          font-size: 30px;
+          clear: both;
+          font-weight: bold;
+        } */
+
+        #head table p {
+            margin: 0px;
+        }
+
+        #nav tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+
+        #nav tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+
+        #nav {
+            width: 100%;
+        }
+
+        #nav table {
+            background: darkcyan;
+        }
+
+        .wp_nav {
+            display: block;
+            margin: 0;
+            padding: 0;
+            display: block;
+            *zoom: 1;
+        }
+
+        .wp_nav .nav-item {
+            display: inline-block;
+            /* float: left; */
+            position: relative;
+            vertical-align: bottom;
+        }
+
+        .wp_nav .nav-item a {
+            font-family: "Microsoft Yahei";
+            display: block;
+            text-align: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .wp_nav .nav-item a span.item-name {
+            display: inline-block;
+            padding: 5px 10px;
+            line-height: 22px;
+            cursor: pointer;
+        }
+
+        .wp_nav .nav-item .mark {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 99;
+        }
+
+        .wp_nav * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #w1 a span {
+            color: #fff;
+        }
+
+        .index_menu1 {
+            width: 100px;
+            height: 35px;
+            padding-top: 8px;
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 3px solid rgb(43, 92, 169);
+            text-decoration: none;
+        }
+
+        .index_menu {
+            width: 100px;
+            height: 35px;
+            padding-top: 8px;
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 1px solid rgb(56, 141, 213);
+            text-decoration: none;
+        }
+
+        .index_menu a,
+        .index_menu a:hover {
+            color: #666;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .index_menu1 a,
+        .index_menu1 a:hover {
+            color: #2b5ca9;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        li {
+            display: list-item;
+            /* text-align: -webkit-match-parent; */
+        }
+
+        #xiaofk3 {
+            /* width: 300px; */
+            /* height: 160px; */
+            overflow: hidden;
+            padding: 3px 0px 0px 5px;
+            margin-left: 6px;
+        }
+
+        #xiaofk3 ul {
+            clear: both;
+        }
+
+        #xiaofk3 li {
+            text-align: left;
+            float: left;
+            width: 290px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            color: rgb(102, 102, 102);
+            padding: 2px 0px 2px 10px;
+            overflow: hidden;
+            background: url(bg001_1.gif) 0px -31px no-repeat;
+        }
+
+        #xiaofk3 li a {
+            color: #666;
+        }
+
+        A {
+            TEXT-DECORATION: none;
+            COLOR: #292929;
+        }
+    </style>
+    <script language="javascript">
+        function form_check_1() {
+            if (document.search_form.keyword.value.length < 2 || document.search_form.keyword.value.length > 40 || document.search_form.keyword.value == '请输入要查找的内容') {
+                window.alert("关键字不符合要求！");
+                document.search_form.keyword.value = '';
+                document.search_form.keyword.focus();
+                return (false);
+            }
+            document.search_form.submit();
+        }
+        function Show_MenuT(tabnum, allnum, bz) {
+            for (var i = 1; i <= allnum; i++) {
+                if (i == tabnum) {
+                    document.getElementById("menu" + bz + "_" + tabnum).className = "index_menu1";
+                    document.getElementById("con" + bz + "_" + tabnum).style.display = "block";
+                } else {
+                    document.getElementById("menu" + bz + "_" + i).className = "index_menu";
+                    document.getElementById("con" + bz + "_" + i).style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div id="container_page">
+    <div id="head">
+        <table width="100%" height="107" border="0" cellpadding="0" cellspacing="0" background="">
+            <tbody>
+            <tr>
+                <td width="100%" valign="top" background=>
+                    <p><img src="..\public/images/logo_1.jpg" width="100%" height="150"></p>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="nav">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td width="35" height="32">&nbsp;</td>
+                <td>
+                    <div frag="面板1">
+                        <div frag="窗口46" id="w1">
+                            <div id="wp_nav_w46">
+                                <ul class="wp_nav"
+                                    data-nav-config="{drop_v: 'down', drop_w: 'right', dir: 'y', opacity_main: '1', opacity_sub: '0.8', dWidth: '0'}">
+                                    <li class="nav-item i1">
+                                        <a href=" http://zsb.hue.edu.cn/main.htm" title="首页" target="_self" class=""><span
+                                                class="item-name">首页</span></a><i class="mark" style="opacity: 1;"></i>
+
+                                    </li>
+
+                                    <li class="nav-item i2">
+                                        <a href="/655/list.htm" title="学校简介" target="_self" class=""><span
+                                                class="item-name">学校简介</span></a><i class="mark" style="opacity: 1;"></i>
+
+                                    </li>
+
+
+                                    <li class="nav-item i6">
+                                        <a href="/659/list.htm" title="专业介绍" target="_self"><span class="item-name">专业介绍</span></a><i
+                                            class="mark" style="opacity: 1;"></i>
+
+                                    </li>
+                                    <li class="nav-item i8">
+                                        <a href="/660/list.htm" title="录取分数线" target="_self" class=""><span
+                                                class="item-name">录取分数线</span></a><i class="mark" style="opacity: 1;"></i>
+
+                                    </li>
+
+                                    <li class="nav-item i9">
+                                        <a href="C:\Users\Administrator\WebstormProjects\chat-app-login\bin\login.html"
+                                           title="在线咨询" target="_self" class=""><span class="item-name">在线咨询</span></a><i class="mark"
+                                                                                                                          style="opacity: 1;"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td width="22">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+                <td style="height:332px; background:#d6d4d4;">
+                    <table width="1004" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div id="xxx">
+                                    <!-- <script>
+                          var box =new PPTBox();
+                          box.width = 1004; //宽度
+                          box.height = 332;//高度
+                          box.autoplayer = 6;//自动播放间隔时间
+
+                          //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
+
+                               box.add({"url":"nwuCover.jpg","href":"/home/index/article/id/181918/mid/4602.html","title":"中心广场草坪"})
+                               box.add({"url":"nwuMain.jpg","href":"/home/index/article/id/181847/mid/4602.html","title":"校门"})
+                              //  box.add({"url":"/upload/appendix/143/2017-10-13_59e0174329968_cover.jpg","href":"/home/index/article/id/181843/mid/4602.html","title":"长安校区校景"})
+                              //  box.add({"url":"/upload/appendix/143/2017-10-13_59e01766f31a5_cover.jpg","href":"/home/index/article/id/181842/mid/4602.html","title":"太白校区校景"})
+                               box.show();
+                         </script> -->
+                                    <div id="_ppt_box-0_mainbox" class="mainbox" style="width:1004px;height:334px;">
+                                        <div id="_ppt_box-0_flashbox" class="flashbox"
+                                             style="width: 4021px; height: 334px; left: 0px;">
+                                            <img src="..\public/images/cover.jpg" style="width:1004px;height:332px;cursor:pointer"
+                                                 onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(0)">
+                                            <!-- <img src="nwuCover.jpg" style="width:1004px;height:332px;cursor:pointer" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(1)"><img src="/upload/appendix/143/2017-10-13_59e0174329968_cover.jpg" style="width:1004px;height:332px;cursor:pointer" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(2)"><img src="/upload/appendix/143/2017-10-13_59e01766f31a5_cover.jpg" style="width:1004px;height:332px;cursor:pointer" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(3)"></div><div id="_ppt_box-0_imagebox" class="imagebox" style="width:1004px;height:14px;top:-32px;"><div class="bitdiv defimg" title="太白校区校景" src="bit01.gif" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(3)" onmouseover="PPTBoxHelper.instance['_ppt_box-0'].mouseoverPic(3)"></div><div class="bitdiv defimg" title="长安校区校景" src="bit01.gif" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(2)" onmouseover="PPTBoxHelper.instance['_ppt_box-0'].mouseoverPic(2)"></div><div class="bitdiv defimg" title="校门" src="bit01.gif" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(1)" onmouseover="PPTBoxHelper.instance['_ppt_box-0'].mouseoverPic(1)"></div><div class="bitdiv curimg" title="中心广场草坪" src="bit01.gif" onclick="PPTBoxHelper.instance['_ppt_box-0'].clickPic(0)" onmouseover="PPTBoxHelper.instance['_ppt_box-0'].mouseoverPic(0)"></div></div></div> -->
+                                        </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+                <td style="background:#f7f7f7; border-bottom:solid 2px #eeecec; height:200px;" valign="top">
+                    <table width="1004" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <table width="100%" height="34" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="index_menu1" id="menuJ_1" onmouseover="Show_MenuT(1,2,'J');"><a
+                                                href="/home/index/articles/mid/4621.html">招生计划</a></td>
+                                        <td class="index_menu" id="menuJ_2" onmouseover="Show_MenuT(2,2,'J');"><a
+                                                href="/home/index/articles/mid/4622.html">招生章程</a></td>
+                                        <td style="border-bottom:solid 1px #0080ff;">&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <table width="100%" height="34" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="index_menu" id="menuK_1" onmouseover="Show_MenuT(1,2,'K');"><a
+                                                href="/home/index/articles/mid/4629.html">特类招生</a></td>
+                                        <td class="index_menu1" id="menuK_2" onmouseover="Show_MenuT(2,2,'K');"><a
+                                                href="/home/index/articles/mid/4617.html">名单公示</a></td>
+                                        <td style="border-bottom:solid 1px #0080ff;">&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                <table width="100%" height="34" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="index_menu" id="menuL_1" onmouseover="Show_MenuT(1,3,'L');"><a
+                                                href="/home/index/articles/mid/4627.html">学在西大</a></td>
+                                        <td class="index_menu1" id="menuL_2" onmouseover="Show_MenuT(2,3,'L');"><a
+                                                href="/home/index/articles/mid/4601.html">视频</a></td>
+                                        <td class="index_menu" id="menuL_3" onmouseover="Show_MenuT(3,3,'L');"><a
+                                                href="/home/index/articles/mid/4628.html">微信</a></td>
+                                        <td style="border-bottom:solid 1px #0080ff;">&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- 1 -->
+                                <div id="conJ_1" style="display: block;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+                                                        <li><a href="/home/index/article/id/207302/mid/4621.html" target="_blank"
+                                                               title="西北大学2018年本科招生计划">西北大学2018年本科招生计划</a></li>
+                                                        <li><a href="/home/index/article/id/205923/mid/4621.html" target="_blank"
+                                                               title="西北大学2017年本科招生计划">西北大学2017年本科招生计划</a></li>
+                                                        <li><a href="/home/index/article/id/182130/mid/4621.html" target="_blank"
+                                                               title="西北大学2016年本科招生计划">西北大学2016年本科招生计划</a></li>
+                                                        <li><a href="/home/index/article/id/182066/mid/4621.html" target="_blank"
+                                                               title="西北大学2015年本科招生计划">西北大学2015年本科招生计划</a></li>
+                                                        <li><a href="/home/index/article/id/181998/mid/4621.html" target="_blank"
+                                                               title="西北大学2014年本科招生计划">西北大学2014年本科招生计划</a></li>
+                                                        <li><a href="/home/index/article/id/181926/mid/4621.html" target="_blank"
+                                                               title="西北大学2013年本科招生计划">西北大学2013年本科招生计划</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <!-- 2 -->
+                                <div id="conJ_2" style="display: none;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+
+                                                        <li><a href="/home/index/article/id/205917/mid/4622.html" target="_blank"
+                                                               title="西北大学2018年全日制普通本、专科招生章程">西北大学2018年全日制普通本、专科招生章程</a></li>
+                                                        <li><a href="/home/index/article/id/184884/mid/4622.html" target="_blank"
+                                                               title="西北大学2017年全日制普通本、专科招生章程">西北大学2017年全日制普通本、专科招生章程</a></li>
+                                                        <li><a href="/home/index/article/id/182129/mid/4622.html" target="_blank"
+                                                               title="西北大学2016年全日制普通本、专科招生章程">西北大学2016年全日制普通本、专科招生章程</a></li>
+                                                        <li><a href="/home/index/article/id/182067/mid/4622.html" target="_blank"
+                                                               title="西北大学2015年招生章程">西北大学2015年招生章程</a></li>
+                                                        <li><a href="/home/index/article/id/181999/mid/4622.html" target="_blank"
+                                                               title="西北大学2014年招生章程">西北大学2014年招生章程</a></li>
+                                                        <li><a href="/home/index/article/id/182149/mid/4622.html" target="_blank"
+                                                               title="西北大学2013年招生章程">西北大学2013年招生章程</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div id="conK_1" style="display: none;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+
+                                                        <li><a href="/home/index/article/id/234054/mid/4629.html" target="_blank"
+                                                               title="西北大學2019年臺灣地區招收免試生招生簡章">西北大學2019年臺灣地區招收免試生招生簡章</a></li>
+                                                        <li><a href="/home/index/article/id/233686/mid/4629.html" target="_blank"
+                                                               title="西北大学2019年广播电视编导专业招生简章">西北大学2019年广播电视编导专业招生简章</a></li>
+                                                        <li><a href="/home/index/article/id/233685/mid/4629.html" target="_blank"
+                                                               title="西北大学2019年播音与主持艺术专业招生简章">西北大学2019年播音与主持艺术专业招生简章</a></li>
+                                                        <li><a href="/home/index/article/id/233684/mid/4629.html" target="_blank"
+                                                               title="西北大学2019年设计学类、美术学专业招生简章">西北大学2019年设计学类、美术学专业招生简章</a></li>
+                                                        <li><a href="/home/index/article/id/232359/mid/4629.html" target="_blank"
+                                                               title="西北大学2019年招收香港推免生简章">西北大学2019年招收香港推免生简章</a></li>
+                                                        <li><a href="/home/index/article/id/228128/mid/4629.html" target="_blank"
+                                                               title="西北大学2019年招收澳门保送生简章">西北大学2019年招收澳门保送生简章</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <!-- 1 -->
+                                <div id="conK_2" style="display: block;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+                                                        <li><a href="/home/index/article/id/207045/mid/4617.html" target="_blank"
+                                                               title="西北大学2018年自主招生入选合格名单">
+                                                            <font style="color:#388dd5;">[名单公示]</font>西北大学2018年自主招生入选合格名单
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/205732/mid/4617.html" target="_blank"
+                                                               title="西北大学2018年高校专项计划招生材料审核通过名单公示">
+                                                            <font style="color:#388dd5;">[名单公示]</font>西北大学2018年高校专项计划招生材料审核通过名单公示
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/189613/mid/4617.html" target="_blank"
+                                                               title="2018年自主招生资格初审合格考生名单公示">
+                                                            <font style="color:#388dd5;">[名单公示]</font>2018年自主招生资格初审合格考生名单公示
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/182171/mid/4617.html" target="_blank"
+                                                               title="西北大学2017年自主招生初审合格名单公示">
+                                                            <font style="color:#388dd5;">[名单公示]</font>西北大学2017年自主招生初审合格名单公示
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/182146/mid/4617.html" target="_blank"
+                                                               title="西北大学2016年特殊类型招生录取学生名单公示">
+                                                            <font style="color:#388dd5;">[名单公示]</font>西北大学2016年特殊类型招生录取学生名单公示
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/182124/mid/4617.html" target="_blank"
+                                                               title="西北大学2016年自主招生报名初审通过考生名单公示">
+                                                            <font style="color:#388dd5;">[名单公示]</font>西北大学2016年自主招生报名初审通过考生名单公示
+                                                        </a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div id="conL_1" style="display: none;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+
+                                                        <li><a href="/home/index/article/id/182205/mid/4627.html" target="_blank"
+                                                               title="西北大学115周年校庆专题网站：《那年花开月正圆》校友丁黑执导的又一情怀作品">西北大学115周年校庆专题网站：《那年花开月正圆》校友丁黑执导的又一情怀作品</a>
+                                                        </li>
+                                                        <li><a href="/home/index/article/id/182204/mid/4627.html" target="_blank"
+                                                               title="西北大学115周年校庆专题网站：校友丁黑|凭一腔热血拍《大秦帝国》">西北大学115周年校庆专题网站：校友丁黑|凭一腔热血拍《大秦帝国》</a>
+                                                        </li>
+                                                        <li><a href="/home/index/article/id/182179/mid/4627.html" target="_blank"
+                                                               title="我校范代娣教授荣获全国首届“创新争先奖”">我校范代娣教授荣获全国首届“创新争先奖”</a></li>
+                                                        <li><a href="/home/index/article/id/182178/mid/4627.html" target="_blank"
+                                                               title="我校首个国际联合实验室揭牌">我校首个国际联合实验室揭牌</a></li>
+                                                        <li><a href="/home/index/article/id/182177/mid/4627.html" target="_blank"
+                                                               title="我校学生获西北地区研究生英语演讲比赛二等奖">我校学生获西北地区研究生英语演讲比赛二等奖</a></li>
+                                                        <li><a href="/home/index/article/id/182176/mid/4627.html" target="_blank"
+                                                               title="我校参与主办第24届北京大学生电影节西北分会场活动">我校参与主办第24届北京大学生电影节西北分会场活动</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <!-- 1 -->
+                                <div id="conL_2" style="display: block;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+                                                        <li><a href="/home/index/article/id/182153/mid/4601.html" target="_blank"
+                                                               title="西北大学风景">
+                                                            <font style="color:#388dd5;">[视频播放]</font>西北大学风景
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/182152/mid/4601.html" target="_blank"
+                                                               title="魅力西大行">
+                                                            <font style="color:#388dd5;">[视频播放]</font>魅力西大行
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/182151/mid/4601.html" target="_blank"
+                                                               title="西北大学实验中心">
+                                                            <font style="color:#388dd5;">[视频播放]</font>西北大学实验中心
+                                                        </a></li>
+                                                        <li><a href="/home/index/article/id/181938/mid/4601.html" target="_blank"
+                                                               title="西北大学欢迎你">
+                                                            <font style="color:#388dd5;">[视频播放]</font>西北大学欢迎你
+                                                        </a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div id="conL_3" style="display: none;">
+
+                                    <table width="335" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="335" height="165" valign="top" style="border-right:solid 2px #eeecec;">
+                                                <div id="xiaofk3">
+                                                    <ul>
+
+                                                        <li><a href="/home/index/article/id/182203/mid/4628.html" target="_blank"
+                                                               title="【聚焦】国家“双一流”建设高校及建设学科名单公布|西北大学入选">【聚焦】国家“双一流”建设高校及建设学科名单公布|西北大学入选</a></li>
+                                                        <li><a href="/home/index/article/id/182148/mid/4628.html" target="_blank"
+                                                               title="泾干中学师生到我校参观体验">泾干中学师生到我校参观体验</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+                <td style="background:#f7f7f7;">
+                    <table width="1004" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td height="39" style="padding-left:20px; border-bottom:solid 1px #4187cc;"><img
+                                    src="..\public\images\bg03_1.jpg" width="78" height="26"></td>
+                        </tr>
+                        <tr>
+                            <td height="39" align="center">
+                                <!-- <script type="text/javascript" language="javascript" src="link.js"></script> -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1">
+                                    <tbody>
+                                    <tr>
+                                        <td align="center"><a href="http://www.moe.edu.cn/" title="中华人民共和国教育部"
+                                                              target="_blank">中华人民共和国教育部</a></td>
+                                        <td align="center"><a href="http://gaokao.chsi.com.cn/" title="阳光高考信息平台"
+                                                              target="_blank">阳光高考信息平台</a></td>
+                                        <td align="center"><a href="http://www.sneac.com" title="陕西省招生考试网"
+                                                              target="_blank">陕西省招生考试网</a></td>
+                                        <td align="center"><a href="http://www.nwu.edu.cn/" title="西北大学首页"
+                                                              target="_blank">西北大学首页</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="bottom">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+                <td height="46" style=" background:#2b5ca9;">
+                    <table width="1004" height="55" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td style="line-height:160%; color:#fff; font-family: '微软雅黑'; padding:6px 0px 6px 0px;"
+                                align="center" width="1200">
+                                Copyright©2017　西北大学本科招生办公室
+                                <br>地址：西安市太白北路229号西北大学教学九号楼一层西侧 招生办公室 邮编：710069 电话：029-88302211 e-mail:zsb@nwu.edu.cn&nbsp;
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+
+</html>
